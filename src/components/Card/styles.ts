@@ -10,6 +10,7 @@ import {
   DivineAttributeIcon as Divine,
   SpellAttributeIcon as Spell,
   TrapAttributeIcon as Trap,
+  RankStarIcon as Rank,
 } from "@/Icons";
 
 import Image from "next/image";
@@ -82,3 +83,5 @@ export const DivineAttributeIcon = styled(Divine)``;
 export const SpellAttributeIcon = styled(Spell)``;
 
 export const TrapAttributeIcon = styled(Trap)``;
+
+export const RankStarIcon = styled(Rank)``;

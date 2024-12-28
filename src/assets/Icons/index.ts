@@ -8,3 +8,4 @@ export { WindAttributeIcon } from "./WindAttributeIcon";
 export { DivineAttributeIcon } from "./DivineAttributeIcon";
 export { SpellAttributeIcon } from "./SpellAttributeIcon";
 export { TrapAttributeIcon } from "./TrapAttributeIcon";
+export { RankStarIcon } from "./RankStarIcon";
