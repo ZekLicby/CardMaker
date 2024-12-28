@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { LevelStarIcon as Star, LightAttributeIcon as Light } from "@/Icons";
+import {
+  LevelStarIcon as Star,
+  LightAttributeIcon as Light,
+  WaterAttributeIcon as Water,
+} from "@/Icons";
+
 import Image from "next/image";
 
 export const CardContainer = styled.section`
@@ -52,6 +57,8 @@ export const ImageContainer = styled.section`
 
 export const CardImage = styled(Image)``;
 
+export const LevelStarIcon = styled(Star)``;
+
 export const LightAttributeIcon = styled(Light)``;
 
-export const LevelStarIcon = styled(Star)``;
+export const WaterAttributeIcon = styled(Water)``;
