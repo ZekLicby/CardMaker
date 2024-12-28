@@ -1,3 +1,10 @@
 export { LevelStarIcon } from "./LevelStarIcon";
 export { LightAttributeIcon } from "./LightAttributeIcon";
 export { WaterAttributeIcon } from "./WaterAttributeIcon";
+export { DarkAttributeIcon } from "./DarkAttributeIcon";
+export { FireAttributeIcon } from "./FireAttributeIcon";
+export { EarthAttributeIcon } from "./EarthAttributeIcon";
+export { WindAttributeIcon } from "./WindAttributeIcon";
+export { DivineAttributeIcon } from "./DivineAttributeIcon";
+export { SpellAttributeIcon } from "./SpellAttributeIcon";
+export { TrapAttributeIcon } from "./TrapAttributeIcon";

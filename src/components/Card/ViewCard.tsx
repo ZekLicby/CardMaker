@@ -4,11 +4,18 @@ import {
   CardNameContainer,
   CardNameText,
   ImageContainer,
-  LevelStarIcon,
-  LightAttributeIcon,
   StarAndImageContainer,
   StarContainer,
-  WaterAttributeIcon,
+  LevelStarIcon,
+  LightAttributeIcon,
+  /* WaterAttributeIcon,
+  DarkAttributeIcon,
+  DivineAttributeIcon,
+  FireAttributeIcon,
+  EarthAttributeIcon,
+  SpellAttributeIcon,
+  WindAttributeIcon,
+  TrapAttributeIcon, */
 } from "./styles";
 
 import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
@@ -18,9 +25,7 @@ export const ViewCard = () => {
     <CardContainer>
       <CardNameContainer>
         <CardNameText>Blue-Eyes White Dragon</CardNameText>
-
-        {/* <LightAttributeIcon /> */}
-        {/* <WaterAttributeIcon /> */}
+        <LightAttributeIcon />
       </CardNameContainer>
 
       <StarAndImageContainer>

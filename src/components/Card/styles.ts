@@ -3,6 +3,13 @@ import {
   LevelStarIcon as Star,
   LightAttributeIcon as Light,
   WaterAttributeIcon as Water,
+  DarkAttributeIcon as Dark,
+  FireAttributeIcon as Fire,
+  EarthAttributeIcon as Earth,
+  WindAttributeIcon as Wind,
+  DivineAttributeIcon as Divine,
+  SpellAttributeIcon as Spell,
+  TrapAttributeIcon as Trap,
 } from "@/Icons";
 
 import Image from "next/image";
@@ -13,7 +20,6 @@ export const CardContainer = styled.section`
   border: 6px solid silver;
   padding: 1rem;
 
-  /* Normal monster */
   background-color: #ffd700;
 `;
 
@@ -62,3 +68,17 @@ export const LevelStarIcon = styled(Star)``;
 export const LightAttributeIcon = styled(Light)``;
 
 export const WaterAttributeIcon = styled(Water)``;
+
+export const DarkAttributeIcon = styled(Dark)``;
+
+export const FireAttributeIcon = styled(Fire)``;
+
+export const EarthAttributeIcon = styled(Earth)``;
+
+export const WindAttributeIcon = styled(Wind)``;
+
+export const DivineAttributeIcon = styled(Divine)``;
+
+export const SpellAttributeIcon = styled(Spell)``;
+
+export const TrapAttributeIcon = styled(Trap)``;
