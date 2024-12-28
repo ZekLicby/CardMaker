@@ -5,11 +5,11 @@ import {
   CardNameText,
   ImageContainer,
   LevelStarIcon,
-  LightAttributeIcon,
   StarAndImageContainer,
   StarContainer,
-  WaterAttributeIcon,
-  DarkAttributeIcon,
+  /* LightAttributeIcon */
+  /* WaterAttributeIcon */
+  /* DarkAttributeIcon */
 } from "./styles";
 
 import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
