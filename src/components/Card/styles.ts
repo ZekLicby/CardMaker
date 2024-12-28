@@ -14,7 +14,6 @@ export const CardContainer = styled.section`
   border: 6px solid silver;
   padding: 1rem;
 
-  /* Normal monster */
   background-color: #ffd700;
 `;
 
