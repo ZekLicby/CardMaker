@@ -8,14 +8,6 @@ import {
   StarContainer,
   LevelStarIcon,
   LightAttributeIcon,
-  /* WaterAttributeIcon,
-  DarkAttributeIcon,
-  DivineAttributeIcon,
-  FireAttributeIcon,
-  EarthAttributeIcon,
-  SpellAttributeIcon,
-  WindAttributeIcon,
-  TrapAttributeIcon, */
 } from "./styles";
 
 import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
