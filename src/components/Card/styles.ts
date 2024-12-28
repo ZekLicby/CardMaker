@@ -3,6 +3,7 @@ import {
   LevelStarIcon as Star,
   LightAttributeIcon as Light,
   WaterAttributeIcon as Water,
+  DarkAttributeIcon as Dark,
 } from "@/Icons";
 
 import Image from "next/image";
@@ -62,3 +63,5 @@ export const LevelStarIcon = styled(Star)``;
 export const LightAttributeIcon = styled(Light)``;
 
 export const WaterAttributeIcon = styled(Water)``;
+
+export const DarkAttributeIcon = styled(Dark)``;

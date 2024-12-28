@@ -9,6 +9,7 @@ import {
   StarAndImageContainer,
   StarContainer,
   WaterAttributeIcon,
+  DarkAttributeIcon,
 } from "./styles";
 
 import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
@@ -18,9 +19,9 @@ export const ViewCard = () => {
     <CardContainer>
       <CardNameContainer>
         <CardNameText>Blue-Eyes White Dragon</CardNameText>
-
         {/* <LightAttributeIcon /> */}
         {/* <WaterAttributeIcon /> */}
+        {/* <DarkAttributeIcon /> */}
       </CardNameContainer>
 
       <StarAndImageContainer>
