@@ -4,6 +4,12 @@ import {
   LightAttributeIcon as Light,
   WaterAttributeIcon as Water,
   DarkAttributeIcon as Dark,
+  FireAttributeIcon as Fire,
+  EarthAttributeIcon as Earth,
+  WindAttributeIcon as Wind,
+  DivineAttributeIcon as Divine,
+  SpellAttributeIcon as Spell,
+  TrapAttributeIcon as Trap,
 } from "@/Icons";
 
 import Image from "next/image";
@@ -64,3 +70,15 @@ export const LightAttributeIcon = styled(Light)``;
 export const WaterAttributeIcon = styled(Water)``;
 
 export const DarkAttributeIcon = styled(Dark)``;
+
+export const FireAttributeIcon = styled(Fire)``;
+
+export const EarthAttributeIcon = styled(Earth)``;
+
+export const WindAttributeIcon = styled(Wind)``;
+
+export const DivineAttributeIcon = styled(Divine)``;
+
+export const SpellAttributeIcon = styled(Spell)``;
+
+export const TrapAttributeIcon = styled(Trap)``;
