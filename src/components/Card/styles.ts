@@ -14,14 +14,18 @@ import {
 } from "@/Icons";
 
 import Image from "next/image";
+import { ICardContainer } from "./types";
 
-export const CardContainer = styled.section`
+export const CardContainer = styled.section<ICardContainer>`
   width: 424px;
   height: 614px;
   border: 6px solid silver;
   padding: 1rem;
 
-  background-color: #ffd700;
+  background-image: url(${({ backGround }) => backGround});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const CardNameContainer = styled.section`
