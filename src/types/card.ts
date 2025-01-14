@@ -1,0 +1,16 @@
+export type TCardType =
+  | "normal"
+  | "darkSynchro"
+  | "effect"
+  | "fusion"
+  | "legendaryDragon"
+  | "link"
+  | "obelisk"
+  | "ra"
+  | "ritual"
+  | "slifer"
+  | "spell"
+  | "synchro"
+  | "token"
+  | "trap"
+  | "xyz";

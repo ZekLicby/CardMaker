@@ -1,11 +1,16 @@
 import { Card } from "@/components/Card";
 import { Select } from "@/components/Select";
+import { IViewCardCreation } from "./types";
+import { FC } from "react";
 
-export const ViewCardCreation = () => {
+export const ViewCardCreation: FC<IViewCardCreation> = ({
+  setCardType,
+  cardType,
+}) => {
   return (
     <>
-      <Card />
-      <Select />
+      <Card cardType={cardType} />
+      <Select setCardType={setCardType} />
     </>
   );
 };

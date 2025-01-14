@@ -13,10 +13,9 @@ import SynchroCardBackground from "../../../public/synchro.png";
 import TokenCardBackground from "../../../public/token.png";
 import TrapCardBackground from "../../../public/trap.png";
 import XyzCardBackground from "../../../public/xyz.png";
+import { IUseCard } from "./types";
 
-export const useCard = () => {
-  const cardType = "link";
-
+export const useCard = ({ cardType }: IUseCard) => {
   const cardsBackground = {
     normal: NormalCardBackground,
     darkSynchro: DarkSynchroCardBackground,
