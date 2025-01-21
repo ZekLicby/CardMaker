@@ -11,12 +11,12 @@ export const ViewSelect: FC<IViewSelect> = ({ setCardType }) => {
           setCardType(value as TCardType);
         }}
       >
-        <CustomOption value="link" selected>
-          link
-        </CustomOption>
+        <CustomOption value="link">link</CustomOption>
         <CustomOption value="xyz">xyz</CustomOption>
         <CustomOption value="synchro">synchro</CustomOption>
-        <CustomOption value="normal">normal</CustomOption>
+        <CustomOption value="normal" selected>
+          normal
+        </CustomOption>
         <CustomOption value="darkSynchro">darkSynchro</CustomOption>
         <CustomOption value="effect">effect</CustomOption>
         <CustomOption value="fusion">fusion</CustomOption>

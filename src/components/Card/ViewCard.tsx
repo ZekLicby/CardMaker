@@ -14,11 +14,14 @@ import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
 import { FC } from "react";
 import { IViewCard } from "./types";
 
-export const ViewCard: FC<IViewCard> = ({ currentCardBackground }) => {
+export const ViewCard: FC<IViewCard> = ({
+  currentCardBackground,
+  cardName,
+}) => {
   return (
     <CardContainer backGround={currentCardBackground}>
       <CardNameContainer>
-        <CardNameText>Blue-Eyes White Dragon</CardNameText>
+        <CardNameText>{cardName}</CardNameText>
         <LightAttributeIcon />
       </CardNameContainer>
 
