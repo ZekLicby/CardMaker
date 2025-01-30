@@ -1,14 +1,16 @@
-import { FC } from "react";
+import { TCardTypeLabel, TCardTypeValue } from "@/types/card";
 import { CustomOption, CustomSelect, SelectContainer } from "./styles";
 import { IViewSelect } from "./types";
-import { TCardTypeValue } from "@/types/card";
 
-export const ViewSelect: FC<IViewSelect> = ({ setCardType, optionsArray }) => {
+export const ViewSelect = <V extends TCardTypeValue, L extends TCardTypeLabel>({
+  optionsArray,
+  setValue,
+}: IViewSelect<V, L>) => {
   return (
     <SelectContainer>
       <CustomSelect
         onChange={({ currentTarget: { value } }) => {
-          setCardType(value as TCardTypeValue);
+          setValue(value as V);
         }}
       >
         {optionsArray.map((option) => {
