@@ -1,33 +1,27 @@
 import { FC } from "react";
 import { CustomOption, CustomSelect, SelectContainer } from "./styles";
 import { IViewSelect } from "./types";
-import { TCardType } from "@/types/card";
+import { TCardTypeValue } from "@/types/card";
 
-export const ViewSelect: FC<IViewSelect> = ({ setCardType }) => {
+export const ViewSelect: FC<IViewSelect> = ({ setCardType, optionsArray }) => {
   return (
     <SelectContainer>
       <CustomSelect
         onChange={({ currentTarget: { value } }) => {
-          setCardType(value as TCardType);
+          setCardType(value as TCardTypeValue);
         }}
       >
-        <CustomOption value="link">link</CustomOption>
-        <CustomOption value="xyz">xyz</CustomOption>
-        <CustomOption value="synchro">synchro</CustomOption>
-        <CustomOption value="normal" selected>
-          normal
-        </CustomOption>
-        <CustomOption value="darkSynchro">darkSynchro</CustomOption>
-        <CustomOption value="effect">effect</CustomOption>
-        <CustomOption value="fusion">fusion</CustomOption>
-        <CustomOption value="legendaryDragon">legendaryDragon</CustomOption>
-        <CustomOption value="obelisk">obelisk</CustomOption>
-        <CustomOption value="ra">ra</CustomOption>
-        <CustomOption value="ritual">ritual</CustomOption>
-        <CustomOption value="slifer">slifer</CustomOption>
-        <CustomOption value="spell">spell</CustomOption>
-        <CustomOption value="trap">trap</CustomOption>
-        <CustomOption value="token">token</CustomOption>
+        {optionsArray.map((option) => {
+          return (
+            <CustomOption
+              key={option.value}
+              selected={option.selected}
+              value={option.value}
+            >
+              {option.label}
+            </CustomOption>
+          );
+        })}
       </CustomSelect>
     </SelectContainer>
   );
