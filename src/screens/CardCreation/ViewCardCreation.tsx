@@ -9,12 +9,13 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
   cardType,
   setCardName,
   cardName,
+  cardTypeOptions,
 }) => {
   return (
     <>
       <Card cardType={cardType} cardName={cardName} />
       <Input setCardName={setCardName} />
-      <Select setCardType={setCardType} />
+      <Select setCardType={setCardType} optionsArray={cardTypeOptions} />
     </>
   );
 };

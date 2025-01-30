@@ -1,4 +1,4 @@
-import { TCardType } from "@/types/card";
+import { TCardTypeValue } from "@/types/card";
 
 export interface IViewCard {
   currentCardBackground: string;
@@ -10,10 +10,10 @@ export interface ICardContainer {
 }
 
 export interface ICard {
-  cardType: TCardType;
+  cardType: TCardTypeValue;
   cardName: string;
 }
 
 export interface IUseCard {
-  cardType: TCardType;
+  cardType: TCardTypeValue;
 }
