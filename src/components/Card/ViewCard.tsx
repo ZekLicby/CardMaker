@@ -10,16 +10,17 @@ import {
   LightAttributeIcon,
 } from "./styles";
 
-import BlueEyesWhiteDragon from "../../../public/Blue-Eyes-White-Dragon.png";
 import { FC } from "react";
 import { IViewCard } from "./types";
 
 export const ViewCard: FC<IViewCard> = ({
   currentCardBackground,
   cardName,
+  image,
+  cardRef,
 }) => {
   return (
-    <CardContainer backGround={currentCardBackground}>
+    <CardContainer backGround={currentCardBackground} ref={cardRef}>
       <CardNameContainer>
         <CardNameText>{cardName}</CardNameText>
         <LightAttributeIcon />
@@ -39,7 +40,7 @@ export const ViewCard: FC<IViewCard> = ({
 
         <ImageContainer>
           <CardImage
-            src={BlueEyesWhiteDragon}
+            src={image as string}
             width={356}
             height={288}
             alt="Dragão branco de olhos azuis"

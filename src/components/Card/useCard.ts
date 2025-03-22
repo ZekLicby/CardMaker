@@ -13,9 +13,14 @@ import SynchroCardBackground from "../../../public/synchro.png";
 import TokenCardBackground from "../../../public/token.png";
 import TrapCardBackground from "../../../public/trap.png";
 import XyzCardBackground from "../../../public/xyz.png";
-import { IUseCard } from "./types";
+import { useContext } from "react";
+import { CardContext } from "@/context/card";
 
-export const useCard = ({ cardType }: IUseCard) => {
+export const useCard = () => {
+  const cardContext = useContext(CardContext);
+
+  const { cardName, cardType, cardRef } = cardContext;
+
   const cardsBackground = {
     normal: NormalCardBackground,
     darkSynchro: DarkSynchroCardBackground,
@@ -36,5 +41,5 @@ export const useCard = ({ cardType }: IUseCard) => {
 
   const currentCardBackground = cardsBackground[cardType].src;
 
-  return { currentCardBackground };
+  return { currentCardBackground, cardName, cardRef };
 };
