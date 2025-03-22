@@ -1,11 +1,14 @@
 import { AppProps } from "next/app";
 import GlobalStyle from "../styles/global";
+import { CardProvider } from "@/context/card";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <CardProvider >
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </CardProvider>
     </>
   );
 }

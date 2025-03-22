@@ -1,7 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, HTMLInputTypeAttribute, SetStateAction } from "react";
 
 export interface IInput {
-  setCardName: Dispatch<SetStateAction<string>>;
+  setValue: (e: any) => void;
+  type?: HTMLInputTypeAttribute;
 }
 
 export type TViewInput = IInput;

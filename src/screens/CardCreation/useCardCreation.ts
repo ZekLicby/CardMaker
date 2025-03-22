@@ -1,9 +1,22 @@
-import { ICardTypeOptions, TCardTypeValue } from "@/types/card";
-import { useState } from "react";
+import { CardContext } from "@/context/card";
+import { ICardTypeOptions } from "@/types/card";
+import { ChangeEvent, useContext, useState } from "react";
 
 export const useCardCreation = () => {
-  const [cardType, setCardType] = useState<TCardTypeValue>("normal");
-  const [cardName, setCardName] = useState<string>("");
+  const cardContext = useContext(CardContext);
+
+  const [image, setImage] = useState<string | null>(null);
+
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
+
+  const { handleChangeCardName, handleChangeCardType, handleDownload } =
+    cardContext;
 
   const cardTypeOptions: Array<ICardTypeOptions> = [
     { value: "link", label: "Link" },
@@ -23,5 +36,12 @@ export const useCardCreation = () => {
     { value: "token", label: "Token" },
   ];
 
-  return { cardType, setCardType, cardName, setCardName, cardTypeOptions };
+  return {
+    cardTypeOptions,
+    handleChangeCardName,
+    handleChangeCardType,
+    handleDownload,
+    handleImageChange,
+    image,
+  };
 };

@@ -1,10 +1,11 @@
 import { ICardTypeOptions, TCardTypeValue } from "@/types/card";
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 
 export interface IViewCardCreation {
-  cardType: TCardTypeValue;
-  setCardType: Dispatch<SetStateAction<TCardTypeValue>>;
-  cardName: string;
-  setCardName: Dispatch<SetStateAction<string>>;
   cardTypeOptions: ICardTypeOptions[];
+  handleChangeCardType: (value: TCardTypeValue) => void;
+  handleChangeCardName: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleDownload: () => void;
+  handleImageChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  image: string | null;
 }

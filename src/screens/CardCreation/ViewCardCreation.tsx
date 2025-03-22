@@ -3,23 +3,22 @@ import { Select } from "@/components/Select";
 import { IViewCardCreation } from "./types";
 import { FC } from "react";
 import { Input } from "@/components/Input";
-import { TCardTypeLabel, TCardTypeValue } from "@/types/card";
 
 export const ViewCardCreation: FC<IViewCardCreation> = ({
-  setCardType,
-  cardType,
-  setCardName,
-  cardName,
+  handleChangeCardName,
+  handleChangeCardType,
   cardTypeOptions,
+  handleDownload,
+  handleImageChange,
+  image,
 }) => {
   return (
     <>
-      <Card cardType={cardType} cardName={cardName} />
-      <Input setCardName={setCardName} />
-      <Select<TCardTypeValue, TCardTypeLabel>
-        setValue={setCardType}
-        optionsArray={cardTypeOptions}
-      />
+      <Card image={image} />
+      <Input setValue={handleChangeCardName} type="text" />
+      <Input setValue={handleImageChange} type="file" />
+      <Select setValue={handleChangeCardType} optionsArray={cardTypeOptions} />
+      <button onClick={handleDownload}>Download da carta</button>
     </>
   );
 };

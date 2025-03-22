@@ -1,19 +1,16 @@
 import { TCardTypeValue } from "@/types/card";
+import { RefObject } from "react";
 
-export interface IViewCard {
+export interface ICard {
+  image: string | null;
+}
+
+export interface IViewCard extends ICard {
   currentCardBackground: string;
   cardName: string;
+  cardRef: RefObject<HTMLDivElement | null>;
 }
 
 export interface ICardContainer {
   backGround: string;
-}
-
-export interface ICard {
-  cardType: TCardTypeValue;
-  cardName: string;
-}
-
-export interface IUseCard {
-  cardType: TCardTypeValue;
 }
