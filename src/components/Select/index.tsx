@@ -1,14 +1,13 @@
 import { ViewSelect } from "./ViewSelect";
 import { useSelect } from "./useSelect";
 import { ISelect } from "./types";
-import { TCardTypeLabel, TCardTypeValue } from "@/types/card";
 
-export const Select = <V extends TCardTypeValue, L extends TCardTypeLabel>({
+export const Select =({
   optionsArray,
   setValue,
-}: ISelect<V, L>) => {
+}: ISelect) => {
   return (
-    <ViewSelect<V, L>
+    <ViewSelect
       {...useSelect()}
       setValue={setValue}
       optionsArray={optionsArray}
