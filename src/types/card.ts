@@ -37,3 +37,27 @@ export interface ICardTypeOptions {
   label: TCardTypeLabel;
   selected?: boolean;
 }
+
+export type TCardAttributeValue =
+  | "dark"
+  | "divine"
+  | "earth"
+  | "fire"
+  | "light"
+  | "water"
+  | "wind";
+
+export type TCardAttributeLabel =
+  | "Dark"
+  | "Divine"
+  | "Earth"
+  | "Fire"
+  | "Light"
+  | "Water"
+  | "Wind";
+
+export type ICardAttributeOptions = {
+  value: TCardAttributeValue;
+  label: TCardAttributeLabel;
+  selected?: boolean;
+};

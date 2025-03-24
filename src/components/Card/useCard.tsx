@@ -15,11 +15,22 @@ import TrapCardBackground from "../../../public/trap.png";
 import XyzCardBackground from "../../../public/xyz.png";
 import { useContext } from "react";
 import { CardContext } from "@/context/card";
+import {
+  DarkAttributeIcon,
+  DivineAttributeIcon,
+  EarthAttributeIcon,
+  FireAttributeIcon,
+  LightAttributeIcon,
+  SpellAttributeIcon,
+  TrapAttributeIcon,
+  WaterAttributeIcon,
+  WindAttributeIcon,
+} from "./styles";
 
 export const useCard = () => {
   const cardContext = useContext(CardContext);
 
-  const { cardName, cardType, cardRef } = cardContext;
+  const { cardName, cardType, cardRef, image, cardAttribute } = cardContext;
 
   const cardsBackground = {
     normal: NormalCardBackground,
@@ -39,7 +50,26 @@ export const useCard = () => {
     xyz: XyzCardBackground,
   };
 
-  const currentCardBackground = cardsBackground[cardType].src;
+  const cardsAttribute = {
+    dark: <DarkAttributeIcon />,
+    divine: <DivineAttributeIcon />,
+    earth: <EarthAttributeIcon />,
+    fire: <FireAttributeIcon />,
+    light: <LightAttributeIcon />,
+    water: <WaterAttributeIcon />,
+    wind: <WindAttributeIcon />,
+    trap: <TrapAttributeIcon />,
+    spell: <SpellAttributeIcon />,
+  };
 
-  return { currentCardBackground, cardName, cardRef };
+  const currentCardBackground = cardsBackground[cardType].src;
+  const currentCardAttribute = cardsAttribute[cardAttribute];
+
+  return {
+    currentCardBackground,
+    cardName,
+    cardRef,
+    image,
+    currentCardAttribute,
+  };
 };

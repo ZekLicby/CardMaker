@@ -7,17 +7,29 @@ import { Input } from "@/components/Input";
 export const ViewCardCreation: FC<IViewCardCreation> = ({
   handleChangeCardName,
   handleChangeCardType,
+  handleChangeCardAttribute,
   cardTypeOptions,
+  cardAttributeOptions,
   handleDownload,
   handleImageChange,
-  image,
+  cardAttributeSelectCondition,
 }) => {
   return (
     <>
-      <Card image={image} />
+      <Card />
       <Input setValue={handleChangeCardName} type="text" />
       <Input setValue={handleImageChange} type="file" />
       <Select setValue={handleChangeCardType} optionsArray={cardTypeOptions} />
+
+      {cardAttributeSelectCondition ? (
+        <></>
+      ) : (
+        <Select
+          setValue={handleChangeCardAttribute}
+          optionsArray={cardAttributeOptions}
+        />
+      )}
+
       <button onClick={handleDownload}>Download da carta</button>
     </>
   );

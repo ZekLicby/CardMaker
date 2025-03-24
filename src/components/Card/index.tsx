@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { useCard } from "./useCard";
 import { ViewCard } from "./ViewCard";
-import { ICard } from "./types";
 
-export const Card: FC<ICard> = ({ image }) => {
-  return <ViewCard image={image} {...useCard()} />;
+export const Card: FC = () => {
+  return <ViewCard {...useCard()} />;
 };

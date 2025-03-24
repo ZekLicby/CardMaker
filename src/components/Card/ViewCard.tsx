@@ -7,7 +7,6 @@ import {
   StarAndImageContainer,
   StarContainer,
   LevelStarIcon,
-  LightAttributeIcon,
 } from "./styles";
 
 import { FC } from "react";
@@ -15,6 +14,7 @@ import { IViewCard } from "./types";
 
 export const ViewCard: FC<IViewCard> = ({
   currentCardBackground,
+  currentCardAttribute,
   cardName,
   image,
   cardRef,
@@ -23,7 +23,7 @@ export const ViewCard: FC<IViewCard> = ({
     <CardContainer backGround={currentCardBackground} ref={cardRef}>
       <CardNameContainer>
         <CardNameText>{cardName}</CardNameText>
-        <LightAttributeIcon />
+        {currentCardAttribute}
       </CardNameContainer>
 
       <StarAndImageContainer>

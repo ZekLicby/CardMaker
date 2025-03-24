@@ -1,4 +1,9 @@
-import { ICardTypeOptions, TCardTypeValue } from "@/types/card";
+import {
+  ICardAttributeOptions,
+  ICardTypeOptions,
+  TCardAttributeValue,
+  TCardTypeValue,
+} from "@/types/card";
 import { ChangeEvent } from "react";
 
 export interface IViewCardCreation {
@@ -7,5 +12,7 @@ export interface IViewCardCreation {
   handleChangeCardName: (e: ChangeEvent<HTMLInputElement>) => void;
   handleDownload: () => void;
   handleImageChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  image: string | null;
+  cardAttributeOptions: Array<ICardAttributeOptions>;
+  handleChangeCardAttribute: (value: TCardAttributeValue) => void;
+  cardAttributeSelectCondition: boolean;
 }
