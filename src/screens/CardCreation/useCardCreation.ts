@@ -1,22 +1,18 @@
 import { CardContext } from "@/context/card";
-import { ICardTypeOptions } from "@/types/card";
-import { ChangeEvent, useContext, useState } from "react";
+import { ICardAttributeOptions, ICardTypeOptions } from "@/types/card";
+import { useContext } from "react";
 
 export const useCardCreation = () => {
   const cardContext = useContext(CardContext);
 
-  const [image, setImage] = useState<string | null>(null);
-
-  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
-    }
-  };
-
-  const { handleChangeCardName, handleChangeCardType, handleDownload } =
-    cardContext;
+  const {
+    handleChangeCardName,
+    handleChangeCardType,
+    handleChangeCardAttribute,
+    handleDownload,
+    handleImageChange,
+    cardAttribute,
+  } = cardContext;
 
   const cardTypeOptions: Array<ICardTypeOptions> = [
     { value: "link", label: "Link" },
@@ -36,12 +32,27 @@ export const useCardCreation = () => {
     { value: "token", label: "Token" },
   ];
 
+  const cardAttributeOptions: Array<ICardAttributeOptions> = [
+    { value: "dark", label: "Dark" },
+    { value: "divine", label: "Divine" },
+    { value: "earth", label: "Earth" },
+    { value: "fire", label: "Fire" },
+    { value: "light", label: "Light" },
+    { value: "water", label: "Water" },
+    { value: "wind", label: "Wind" },
+  ];
+
+  const cardAttributeSelectCondition =
+    cardAttribute === "spell" || cardAttribute === "trap";
+
   return {
     cardTypeOptions,
+    cardAttributeOptions,
     handleChangeCardName,
     handleChangeCardType,
     handleDownload,
     handleImageChange,
-    image,
+    handleChangeCardAttribute,
+    cardAttributeSelectCondition,
   };
 };

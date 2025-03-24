@@ -1,4 +1,4 @@
-import { TCardTypeValue } from "@/types/card";
+import { TCardAttributeValue, TCardTypeValue } from "@/types/card";
 import html2canvas from "html2canvas";
 import {
   ChangeEvent,
@@ -16,6 +16,10 @@ type TCardContext = {
   handleChangeCardName: (e: ChangeEvent<HTMLInputElement>) => void;
   cardRef: RefObject<HTMLDivElement | null>;
   handleDownload: () => void;
+  handleImageChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  image: string | null;
+  cardAttribute: TCardAttributeValue | "trap" | "spell";
+  handleChangeCardAttribute: (value: TCardAttributeValue) => void;
 };
 
 export const CardContext = createContext<TCardContext>({} as TCardContext);
@@ -23,8 +27,20 @@ export const CardContext = createContext<TCardContext>({} as TCardContext);
 export const CardProvider = ({ children }: { children: ReactNode }) => {
   const [cardType, setCardType] = useState<TCardTypeValue>("normal");
   const [cardName, setCardName] = useState<string>("");
+  const [cardAttribute, setCardAttribute] = useState<
+    TCardAttributeValue | "trap" | "spell"
+  >("dark");
+  const [image, setImage] = useState<string | null>(null);
 
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
 
   const handleDownload = async () => {
     if (!cardRef.current) return;
@@ -38,14 +54,35 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
     link.click();
   };
 
+  const handleSetDefaultCardAttribute = (value: TCardTypeValue) => {
+    if (value === "trap") {
+      handleChangeCardAttribute("trap");
+    }
+
+    if (value === "spell") {
+      handleChangeCardAttribute("spell");
+    }
+
+    if (value !== "spell" && value !== "trap") {
+      handleChangeCardAttribute("dark");
+    }
+  };
+
   const handleChangeCardType = (value: TCardTypeValue) => {
+    handleSetDefaultCardAttribute(value);
+
     setCardType(value);
   };
 
   const handleChangeCardName = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-
     setCardName(value);
+  };
+
+  const handleChangeCardAttribute = (
+    value: TCardAttributeValue | "trap" | "spell"
+  ) => {
+    setCardAttribute(value);
   };
 
   return (
@@ -57,6 +94,10 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
         handleChangeCardName,
         cardRef,
         handleDownload,
+        handleImageChange,
+        image,
+        cardAttribute,
+        handleChangeCardAttribute,
       }}
     >
       {children}
