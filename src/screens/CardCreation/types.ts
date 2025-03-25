@@ -2,6 +2,8 @@ import {
   ICardAttributeOptions,
   ICardTypeOptions,
   TCardAttributeValue,
+  TCardLevelOptions,
+  TCardLevelValue,
   TCardTypeValue,
 } from "@/types/card";
 import { ChangeEvent } from "react";
@@ -14,5 +16,8 @@ export interface IViewCardCreation {
   handleImageChange: (event: ChangeEvent<HTMLInputElement>) => void;
   cardAttributeOptions: Array<ICardAttributeOptions>;
   handleChangeCardAttribute: (value: TCardAttributeValue) => void;
-  cardAttributeSelectCondition: boolean;
+  cardAttributeSelectRenderCondition: boolean;
+  cardLevelStarSelectRenderCondition: boolean;
+  cardLevelOptions: Array<TCardLevelOptions>;
+  handleChangeCardLevel: (value: TCardLevelValue) => void;
 }

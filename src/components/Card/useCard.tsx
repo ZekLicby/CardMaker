@@ -20,19 +20,33 @@ import {
   DivineAttributeIcon,
   EarthAttributeIcon,
   FireAttributeIcon,
+  PositiveLevelStarIcon,
   LightAttributeIcon,
+  NegativeLevelStarIcon,
+  RankStarIcon,
   SpellAttributeIcon,
   TrapAttributeIcon,
   WaterAttributeIcon,
   WindAttributeIcon,
+  StarIconContainer,
 } from "./styles";
 
 export const useCard = () => {
   const cardContext = useContext(CardContext);
 
-  const { cardName, cardType, cardRef, image, cardAttribute } = cardContext;
+  const {
+    cardName,
+    cardType,
+    cardRef,
+    cardImage,
+    cardAttribute,
+    cardLevel,
+    cardLevelStarType,
+  } = cardContext;
 
-  const cardsBackground = {
+  const isTextWhite = cardType === "xyz";
+
+  const mappedCardBackground = {
     normal: NormalCardBackground,
     darkSynchro: DarkSynchroCardBackground,
     effect: EffectCardBackground,
@@ -50,7 +64,7 @@ export const useCard = () => {
     xyz: XyzCardBackground,
   };
 
-  const cardsAttribute = {
+  const mappedCardAttribute = {
     dark: <DarkAttributeIcon />,
     divine: <DivineAttributeIcon />,
     earth: <EarthAttributeIcon />,
@@ -62,14 +76,34 @@ export const useCard = () => {
     spell: <SpellAttributeIcon />,
   };
 
-  const currentCardBackground = cardsBackground[cardType].src;
-  const currentCardAttribute = cardsAttribute[cardAttribute];
+  const mappedCardLevel = {
+    positive: <PositiveLevelStarIcon />,
+    negative: <NegativeLevelStarIcon />,
+    rank: <RankStarIcon />,
+  };
+
+  const currentCardBackground = mappedCardBackground[cardType].src;
+  const currentCardAttributeIcon = mappedCardAttribute[cardAttribute];
+  const currentCardLevelIcon =
+    cardLevelStarType !== null && mappedCardLevel[cardLevelStarType];
+
+  const handleReturnCardLevel = () => {
+    if (!cardLevelStarType) {
+      return;
+    }
+
+    return Array.from({ length: cardLevel }, (_, index) => (
+      <StarIconContainer key={index}>{currentCardLevelIcon}</StarIconContainer>
+    ));
+  };
 
   return {
     currentCardBackground,
     cardName,
     cardRef,
-    image,
-    currentCardAttribute,
+    cardImage,
+    currentCardAttributeIcon,
+    handleReturnCardLevel,
+    isTextWhite,
   };
 };

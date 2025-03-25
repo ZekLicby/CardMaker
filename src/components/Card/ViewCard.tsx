@@ -6,7 +6,6 @@ import {
   ImageContainer,
   StarAndImageContainer,
   StarContainer,
-  LevelStarIcon,
 } from "./styles";
 
 import { FC } from "react";
@@ -14,33 +13,26 @@ import { IViewCard } from "./types";
 
 export const ViewCard: FC<IViewCard> = ({
   currentCardBackground,
-  currentCardAttribute,
+  currentCardAttributeIcon,
   cardName,
-  image,
+  cardImage,
   cardRef,
+  handleReturnCardLevel,
+  isTextWhite,
 }) => {
   return (
     <CardContainer backGround={currentCardBackground} ref={cardRef}>
       <CardNameContainer>
-        <CardNameText>{cardName}</CardNameText>
-        {currentCardAttribute}
+        <CardNameText isTextWhite={isTextWhite}>{cardName}</CardNameText>
+        {currentCardAttributeIcon}
       </CardNameContainer>
 
       <StarAndImageContainer>
-        <StarContainer>
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-          <LevelStarIcon />
-        </StarContainer>
+        <StarContainer>{handleReturnCardLevel()}</StarContainer>
 
         <ImageContainer>
           <CardImage
-            src={image as string}
+            src={cardImage as string}
             width={356}
             height={288}
             alt="Dragão branco de olhos azuis"

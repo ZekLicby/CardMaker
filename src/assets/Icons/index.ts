@@ -1,4 +1,4 @@
-export { LevelStarIcon } from "./LevelStarIcon";
+export { PositiveLevelStarIcon } from "./PositiveLevelStarIcon";
 export { LightAttributeIcon } from "./LightAttributeIcon";
 export { WaterAttributeIcon } from "./WaterAttributeIcon";
 export { DarkAttributeIcon } from "./DarkAttributeIcon";
@@ -9,3 +9,4 @@ export { DivineAttributeIcon } from "./DivineAttributeIcon";
 export { SpellAttributeIcon } from "./SpellAttributeIcon";
 export { TrapAttributeIcon } from "./TrapAttributeIcon";
 export { RankStarIcon } from "./RankStarIcon";
+export { NegativeLevelStarIcon } from "./NegativeLevelStarIcon";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {
-  LevelStarIcon as Star,
+  PositiveLevelStarIcon as Positive,
   LightAttributeIcon as Light,
   WaterAttributeIcon as Water,
   DarkAttributeIcon as Dark,
@@ -11,10 +11,11 @@ import {
   SpellAttributeIcon as Spell,
   TrapAttributeIcon as Trap,
   RankStarIcon as Rank,
+  NegativeLevelStarIcon as Negative,
 } from "@/Icons";
 
 import Image from "next/image";
-import { ICardContainer } from "./types";
+import { ICardContainer, TCardNameText } from "./types";
 
 export const CardContainer = styled.section<ICardContainer>`
   width: 424px;
@@ -26,6 +27,10 @@ export const CardContainer = styled.section<ICardContainer>`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 `;
 
 export const CardNameContainer = styled.section`
@@ -45,13 +50,16 @@ export const CardNameContainer = styled.section`
   border-left: 2px solid white;
 `;
 
-export const CardNameText = styled.p`
+export const CardNameText = styled.p<TCardNameText>`
   font-size: 1.5rem;
-  color: black;
+  color: ${({ isTextWhite }) => (isTextWhite ? "white" : "black")};
 `;
 
 export const StarAndImageContainer = styled.section`
   padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 `;
 
 export const StarContainer = styled.section`
@@ -60,6 +68,8 @@ export const StarContainer = styled.section`
   justify-content: flex-end;
 `;
 
+export const StarIconContainer = styled.section``;
+
 export const ImageContainer = styled.section`
   height: 300px;
 
@@ -67,8 +77,6 @@ export const ImageContainer = styled.section`
 `;
 
 export const CardImage = styled(Image)``;
-
-export const LevelStarIcon = styled(Star)``;
 
 export const LightAttributeIcon = styled(Light)``;
 
@@ -87,5 +95,9 @@ export const DivineAttributeIcon = styled(Divine)``;
 export const SpellAttributeIcon = styled(Spell)``;
 
 export const TrapAttributeIcon = styled(Trap)``;
+
+export const PositiveLevelStarIcon = styled(Positive)``;
+
+export const NegativeLevelStarIcon = styled(Negative)``;
 
 export const RankStarIcon = styled(Rank)``;

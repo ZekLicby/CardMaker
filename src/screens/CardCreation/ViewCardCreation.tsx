@@ -12,7 +12,10 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
   cardAttributeOptions,
   handleDownload,
   handleImageChange,
-  cardAttributeSelectCondition,
+  cardAttributeSelectRenderCondition,
+  cardLevelStarSelectRenderCondition,
+  cardLevelOptions,
+  handleChangeCardLevel,
 }) => {
   return (
     <>
@@ -21,12 +24,21 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
       <Input setValue={handleImageChange} type="file" />
       <Select setValue={handleChangeCardType} optionsArray={cardTypeOptions} />
 
-      {cardAttributeSelectCondition ? (
+      {cardAttributeSelectRenderCondition ? (
         <></>
       ) : (
         <Select
           setValue={handleChangeCardAttribute}
           optionsArray={cardAttributeOptions}
+        />
+      )}
+
+      {cardLevelStarSelectRenderCondition ? (
+        <></>
+      ) : (
+        <Select
+          setValue={handleChangeCardLevel}
+          optionsArray={cardLevelOptions}
         />
       )}
 

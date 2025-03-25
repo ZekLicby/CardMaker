@@ -1,5 +1,9 @@
 import { CardContext } from "@/context/card";
-import { ICardAttributeOptions, ICardTypeOptions } from "@/types/card";
+import {
+  ICardAttributeOptions,
+  ICardTypeOptions,
+  TCardLevelOptions,
+} from "@/types/card";
 import { useContext } from "react";
 
 export const useCardCreation = () => {
@@ -12,6 +16,7 @@ export const useCardCreation = () => {
     handleDownload,
     handleImageChange,
     cardAttribute,
+    handleChangeCardLevel,
   } = cardContext;
 
   const cardTypeOptions: Array<ICardTypeOptions> = [
@@ -33,7 +38,7 @@ export const useCardCreation = () => {
   ];
 
   const cardAttributeOptions: Array<ICardAttributeOptions> = [
-    { value: "dark", label: "Dark" },
+    { value: "dark", label: "Dark", selected: true },
     { value: "divine", label: "Divine" },
     { value: "earth", label: "Earth" },
     { value: "fire", label: "Fire" },
@@ -42,8 +47,25 @@ export const useCardCreation = () => {
     { value: "wind", label: "Wind" },
   ];
 
-  const cardAttributeSelectCondition =
+  const cardLevelOptions: Array<TCardLevelOptions> = [
+    { value: 1, label: "1", selected: true },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+    { value: 4, label: "4" },
+    { value: 5, label: "5" },
+    { value: 6, label: "6" },
+    { value: 7, label: "7" },
+    { value: 8, label: "8" },
+    { value: 9, label: "9" },
+    { value: 10, label: "10" },
+    { value: 11, label: "11" },
+    { value: 12, label: "12" },
+  ];
+
+  const cardAttributeSelectRenderCondition =
     cardAttribute === "spell" || cardAttribute === "trap";
+
+  const cardLevelStarSelectRenderCondition = cardAttributeSelectRenderCondition;
 
   return {
     cardTypeOptions,
@@ -53,6 +75,9 @@ export const useCardCreation = () => {
     handleDownload,
     handleImageChange,
     handleChangeCardAttribute,
-    cardAttributeSelectCondition,
+    cardAttributeSelectRenderCondition,
+    cardLevelStarSelectRenderCondition,
+    cardLevelOptions,
+    handleChangeCardLevel,
   };
 };
