@@ -32,12 +32,6 @@ export type TCardTypeLabel =
   | "Trap"
   | "XYZ";
 
-export interface ICardTypeOptions {
-  value: TCardTypeValue;
-  label: TCardTypeLabel;
-  selected?: boolean;
-}
-
 export type TCardAttributeValue =
   | "dark"
   | "divine"
@@ -56,8 +50,38 @@ export type TCardAttributeLabel =
   | "Water"
   | "Wind";
 
+export type TCardLevelValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+export type TCardLevelLabel =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11"
+  | "12";
+
+export type TCardLevelStarType = "positive" | "negative" | "rank" | null;
+
+export interface ICardTypeOptions {
+  value: TCardTypeValue;
+  label: TCardTypeLabel;
+  selected?: boolean;
+}
+
 export type ICardAttributeOptions = {
   value: TCardAttributeValue;
   label: TCardAttributeLabel;
+  selected?: boolean;
+};
+
+export type TCardLevelOptions = {
+  value: TCardLevelValue;
+  label: TCardLevelLabel;
   selected?: boolean;
 };

@@ -1,4 +1,9 @@
-import { TCardAttributeValue, TCardTypeValue } from "@/types/card";
+import {
+  TCardAttributeValue,
+  TCardLevelStarType,
+  TCardLevelValue,
+  TCardTypeValue,
+} from "@/types/card";
 import html2canvas from "html2canvas";
 import {
   ChangeEvent,
@@ -17,9 +22,12 @@ type TCardContext = {
   cardRef: RefObject<HTMLDivElement | null>;
   handleDownload: () => void;
   handleImageChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  image: string | null;
+  cardImage: string | null;
   cardAttribute: TCardAttributeValue | "trap" | "spell";
   handleChangeCardAttribute: (value: TCardAttributeValue) => void;
+  handleChangeCardLevel: (value: TCardLevelValue) => void;
+  cardLevel: TCardLevelValue;
+  cardLevelStarType: TCardLevelStarType;
 };
 
 export const CardContext = createContext<TCardContext>({} as TCardContext);
@@ -30,7 +38,10 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
   const [cardAttribute, setCardAttribute] = useState<
     TCardAttributeValue | "trap" | "spell"
   >("dark");
-  const [image, setImage] = useState<string | null>(null);
+  const [cardImage, setCardImage] = useState<string | null>(null);
+  const [cardLevel, setCardLevel] = useState<TCardLevelValue>(1);
+  const [cardLevelStarType, setCardLevelStarType] =
+    useState<TCardLevelStarType>("positive");
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +49,7 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
     const file = event.target.files?.[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
-      setImage(imageUrl);
+      setCardImage(imageUrl);
     }
   };
 
@@ -68,8 +79,32 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const handleSetDefaultCardLevelStarType = (value: TCardTypeValue) => {
+    if (value === "xyz") {
+      setCardLevelStarType("rank");
+    }
+
+    if (value === "darkSynchro") {
+      setCardLevelStarType("negative");
+    }
+
+    if (
+      value !== "xyz" &&
+      value !== "darkSynchro" &&
+      value !== "spell" &&
+      value !== "trap"
+    ) {
+      setCardLevelStarType("positive");
+    }
+
+    if (value === "trap" || value === "spell") {
+      setCardLevelStarType(null);
+    }
+  };
+
   const handleChangeCardType = (value: TCardTypeValue) => {
     handleSetDefaultCardAttribute(value);
+    handleSetDefaultCardLevelStarType(value);
 
     setCardType(value);
   };
@@ -85,6 +120,10 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
     setCardAttribute(value);
   };
 
+  const handleChangeCardLevel = (value: TCardLevelValue) => {
+    setCardLevel(value);
+  };
+
   return (
     <CardContext.Provider
       value={{
@@ -95,9 +134,12 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
         cardRef,
         handleDownload,
         handleImageChange,
-        image,
+        cardImage,
         cardAttribute,
         handleChangeCardAttribute,
+        handleChangeCardLevel,
+        cardLevel,
+        cardLevelStarType,
       }}
     >
       {children}

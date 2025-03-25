@@ -1,7 +1,7 @@
 import { IDefaultIconProperties } from "@/types/icon";
 import { memo } from "react";
 
-const UnMemoizedLevelStarIcon = ({width = 24, height = 24}: IDefaultIconProperties) => {
+const UnMemoizedPositiveLevelStarIcon = ({width = 24, height = 24}: IDefaultIconProperties) => {
   return (
     <svg
       width={width}
@@ -70,4 +70,4 @@ const UnMemoizedLevelStarIcon = ({width = 24, height = 24}: IDefaultIconProperti
   );
 };
 
-export const LevelStarIcon = memo(UnMemoizedLevelStarIcon);
+export const PositiveLevelStarIcon = memo(UnMemoizedPositiveLevelStarIcon);
