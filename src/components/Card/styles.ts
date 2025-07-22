@@ -20,8 +20,7 @@ import { ICardContainer, TCardNameText } from "./types";
 export const CardContainer = styled.section<ICardContainer>`
   width: 424px;
   height: 614px;
-  border: 6px solid silver;
-  padding: 1rem;
+  padding: 2rem;
 
   background-image: url(${({ backGround }) => backGround});
   background-size: cover;
@@ -31,6 +30,17 @@ export const CardContainer = styled.section<ICardContainer>`
   display: flex;
   flex-direction: column;
   gap: 6px;
+
+  position: relative;
+`;
+
+export const CardBorder = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 `;
 
 export const CardNameContainer = styled.section`
@@ -72,11 +82,46 @@ export const StarIconContainer = styled.section``;
 
 export const ImageContainer = styled.section`
   height: 300px;
-
-  border: 6px solid silver;
+  padding: 12px 14px;
+  position: relative;
 `;
 
-export const CardImage = styled(Image)``;
+export const MonsterImageFrame = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+`;
+
+export const CardDetailsContainer = styled.section`
+  padding: 8px;
+  height: 160px;
+  position: relative;
+`;
+
+export const BackgroundContent = styled.div`
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+`;
+
+export const FrameImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+`;
+
+export const CardImage = styled(Image)`
+  height: 100%;
+  width: 100%;
+`;
 
 export const LightAttributeIcon = styled(Light)``;
 
