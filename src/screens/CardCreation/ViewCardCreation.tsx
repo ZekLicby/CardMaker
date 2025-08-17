@@ -3,6 +3,7 @@ import { Select } from "@/components/Select";
 import { IViewCardCreation } from "./types";
 import { FC } from "react";
 import { Input } from "@/components/Input";
+import { DownloadButton } from "./styles";
 
 export const ViewCardCreation: FC<IViewCardCreation> = ({
   handleChangeCardName,
@@ -16,6 +17,8 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
   cardLevelStarSelectRenderCondition,
   cardLevelOptions,
   handleChangeCardLevel,
+  handleChangeCardMonsterType,
+  handleChangeCardDescription,
 }) => {
   return (
     <>
@@ -42,7 +45,12 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
         />
       )}
 
-      <button onClick={handleDownload}>Download da carta</button>
+      <Input setValue={handleChangeCardMonsterType} type="text" />
+      <Input setValue={handleChangeCardDescription} type="text" />
+
+      <DownloadButton onClick={handleDownload}>
+        Download da carta
+      </DownloadButton>
     </>
   );
 };

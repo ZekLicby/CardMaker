@@ -8,6 +8,11 @@ export interface IViewCard {
   cardImage: string | null;
   handleReturnCardLevel: () => Array<JSX.Element> | undefined;
   isTextWhite: boolean;
+  monsterType: string;
+  cardDescription: string;
+  containerRef: RefObject<HTMLDivElement | null>;
+  textRef: RefObject<HTMLParagraphElement | null>;
+  iconRef: RefObject<HTMLElement | null>;
 }
 
 export interface ICardContainer {

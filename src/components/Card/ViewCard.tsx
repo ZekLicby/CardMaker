@@ -4,11 +4,15 @@ import {
   CardContainer,
   CardDetailsContainer,
   CardImage,
+  CardNameAndAttributeIconContainer,
   CardNameContainer,
   CardNameText,
   FrameImage,
+  IconContainer,
   ImageContainer,
+  MonsterDescription,
   MonsterImageFrame,
+  MonsterTypeText,
   StarAndImageContainer,
   StarContainer,
 } from "./styles";
@@ -29,13 +33,22 @@ export const ViewCard: FC<IViewCard> = ({
   cardRef,
   handleReturnCardLevel,
   isTextWhite,
+  monsterType,
+  cardDescription,
+  containerRef,
+  textRef,
+  iconRef,
 }) => {
   return (
     <CardContainer backGround={currentCardBackground} ref={cardRef}>
-      <CardNameContainer>
-        <CardNameText isTextWhite={isTextWhite}>{cardName}</CardNameText>
-        {currentCardAttributeIcon}
-      </CardNameContainer>
+      <CardNameAndAttributeIconContainer>
+        <CardNameContainer ref={containerRef}>
+          <CardNameText ref={textRef} isTextWhite={isTextWhite}>
+            {cardName}
+          </CardNameText>
+        </CardNameContainer>
+        <IconContainer ref={iconRef}>{currentCardAttributeIcon}</IconContainer>
+      </CardNameAndAttributeIconContainer>
 
       <StarAndImageContainer>
         <StarContainer>{handleReturnCardLevel()}</StarContainer>
@@ -53,18 +66,17 @@ export const ViewCard: FC<IViewCard> = ({
 
       {/*       ESSE AQUI DÁ PRA USAR IMAGEM DIRETA       */}
 
-      {/*       <CardImage
-        src={hologram.src as string}
+      {/* <CardImage
+        src={Hologram.src as string}
         width={356}
         height={288}
         alt="Dragão branco de olhos azuis"
-      />
-      */}
+      /> */}
 
       <CardDetailsContainer>
         <BackgroundContent>
-          <h1>sakljhsajhglh,</h1>
-          <p>afkhjgasl</p>
+          <MonsterTypeText>[{monsterType}]</MonsterTypeText>
+          <MonsterDescription>{cardDescription}</MonsterDescription>
         </BackgroundContent>
         <FrameImage src={BordaLore.src as string} />
       </CardDetailsContainer>

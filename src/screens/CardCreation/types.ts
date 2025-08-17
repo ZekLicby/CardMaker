@@ -20,4 +20,6 @@ export interface IViewCardCreation {
   cardLevelStarSelectRenderCondition: boolean;
   cardLevelOptions: Array<TCardLevelOptions>;
   handleChangeCardLevel: (value: TCardLevelValue) => void;
+  handleChangeCardMonsterType: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChangeCardDescription: (e: ChangeEvent<HTMLInputElement>) => void;
 }

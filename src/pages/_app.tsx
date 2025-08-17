@@ -5,7 +5,7 @@ import { CardProvider } from "@/context/card";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <CardProvider >
+      <CardProvider>
         <GlobalStyle />
         <Component {...pageProps} />
       </CardProvider>

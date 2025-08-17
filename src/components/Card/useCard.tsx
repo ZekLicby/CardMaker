@@ -13,7 +13,7 @@ import SynchroCardBackground from "../../../public/synchro.png";
 import TokenCardBackground from "../../../public/token.png";
 import TrapCardBackground from "../../../public/trap.png";
 import XyzCardBackground from "../../../public/xyz.png";
-import { useContext } from "react";
+import { RefObject, useContext, useRef } from "react";
 import { CardContext } from "@/context/card";
 import {
   DarkAttributeIcon,
@@ -30,8 +30,19 @@ import {
   WindAttributeIcon,
   StarIconContainer,
 } from "./styles";
+import { useFitTextScaleX } from "@/hooks/useFitTextScaleX";
 
 export const useCard = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+  const iconRef = useRef<HTMLElement>(null);
+
+  useFitTextScaleX(
+    containerRef as RefObject<HTMLDivElement>,
+    textRef as RefObject<HTMLParagraphElement>,
+    iconRef as RefObject<HTMLElement>
+  );
+
   const cardContext = useContext(CardContext);
 
   const {
@@ -42,6 +53,8 @@ export const useCard = () => {
     cardAttribute,
     cardLevel,
     cardLevelStarType,
+    monsterType,
+    cardDescription,
   } = cardContext;
 
   const isTextWhite = cardType === "xyz";
@@ -105,5 +118,10 @@ export const useCard = () => {
     currentCardAttributeIcon,
     handleReturnCardLevel,
     isTextWhite,
+    monsterType,
+    cardDescription,
+    containerRef,
+    textRef,
+    iconRef,
   };
 };

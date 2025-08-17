@@ -43,9 +43,8 @@ export const CardBorder = styled.img`
   pointer-events: none;
 `;
 
-export const CardNameContainer = styled.section`
+export const CardNameAndAttributeIconContainer = styled.section`
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
@@ -60,9 +59,23 @@ export const CardNameContainer = styled.section`
   border-left: 2px solid white;
 `;
 
+export const CardNameContainer = styled.section`
+  width: 100%;
+  overflow: hidden;
+`;
+
 export const CardNameText = styled.p<TCardNameText>`
   font-size: 1.5rem;
   color: ${({ isTextWhite }) => (isTextWhite ? "white" : "black")};
+  white-space: nowrap;
+  display: inline-block; /* permite aplicar scaleX */
+  transform-origin: left;
+  width: auto;
+`;
+
+export const IconContainer = styled.section`
+  display: flex;
+  margin-left: 2px;
 `;
 
 export const StarAndImageContainer = styled.section`
@@ -108,6 +121,10 @@ export const BackgroundContent = styled.div`
   padding: 8px;
   box-sizing: border-box;
 `;
+
+export const MonsterTypeText = styled.p``;
+
+export const MonsterDescription = styled.p``;
 
 export const FrameImage = styled.img`
   position: absolute;

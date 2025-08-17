@@ -28,6 +28,10 @@ type TCardContext = {
   handleChangeCardLevel: (value: TCardLevelValue) => void;
   cardLevel: TCardLevelValue;
   cardLevelStarType: TCardLevelStarType;
+  handleChangeCardMonsterType: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleChangeCardDescription: (e: ChangeEvent<HTMLInputElement>) => void;
+  monsterType: string;
+  cardDescription: string;
 };
 
 export const CardContext = createContext<TCardContext>({} as TCardContext);
@@ -42,6 +46,8 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
   const [cardLevel, setCardLevel] = useState<TCardLevelValue>(1);
   const [cardLevelStarType, setCardLevelStarType] =
     useState<TCardLevelStarType>("positive");
+  const [monsterType, setMonsterType] = useState("");
+  const [cardDescription, setCardDescription] = useState("");
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -124,6 +130,16 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
     setCardLevel(value);
   };
 
+  const handleChangeCardMonsterType = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setMonsterType(value);
+  };
+
+  const handleChangeCardDescription = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setCardDescription(value);
+  };
+
   return (
     <CardContext.Provider
       value={{
@@ -140,6 +156,10 @@ export const CardProvider = ({ children }: { children: ReactNode }) => {
         handleChangeCardLevel,
         cardLevel,
         cardLevelStarType,
+        handleChangeCardMonsterType,
+        handleChangeCardDescription,
+        monsterType,
+        cardDescription,
       }}
     >
       {children}

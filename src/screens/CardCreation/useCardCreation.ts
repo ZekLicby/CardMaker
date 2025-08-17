@@ -17,6 +17,8 @@ export const useCardCreation = () => {
     handleImageChange,
     cardAttribute,
     handleChangeCardLevel,
+    handleChangeCardMonsterType,
+    handleChangeCardDescription,
   } = cardContext;
 
   const cardTypeOptions: Array<ICardTypeOptions> = [
@@ -79,5 +81,7 @@ export const useCardCreation = () => {
     cardLevelStarSelectRenderCondition,
     cardLevelOptions,
     handleChangeCardLevel,
+    handleChangeCardMonsterType,
+    handleChangeCardDescription,
   };
 };
