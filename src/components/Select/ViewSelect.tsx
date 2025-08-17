@@ -1,13 +1,22 @@
 import { CustomOption, CustomSelect, SelectContainer } from "./styles";
 import { IViewSelect } from "./types";
 
-export const ViewSelect = ({ optionsArray, setValue }: IViewSelect) => {
+export const ViewSelect = ({
+  optionsArray,
+  setValue,
+  currentValue,
+  label,
+}: IViewSelect) => {
   return (
     <SelectContainer>
+      <label htmlFor={label}>{label}</label>
+
       <CustomSelect
+        id={label}
         onChange={({ currentTarget: { value } }) => {
           setValue(value);
         }}
+        value={currentValue}
       >
         {optionsArray.map((option) => {
           return (

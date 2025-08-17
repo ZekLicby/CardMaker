@@ -3,7 +3,7 @@ import { Select } from "@/components/Select";
 import { IViewCardCreation } from "./types";
 import { FC } from "react";
 import { Input } from "@/components/Input";
-import { DownloadButton } from "./styles";
+import { CardCreationContainer, CardForm, DownloadButton } from "./styles";
 
 export const ViewCardCreation: FC<IViewCardCreation> = ({
   handleChangeCardName,
@@ -19,38 +19,69 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
   handleChangeCardLevel,
   handleChangeCardMonsterType,
   handleChangeCardDescription,
+  cardLevel,
 }) => {
   return (
-    <>
+    <CardCreationContainer>
+      <CardForm>
+        <Input
+          setValue={handleChangeCardName}
+          type="text"
+          label="Nome: "
+          placeholder="Ex: Dragão Branco de olhos azuis"
+        />
+        <Input
+          setValue={handleImageChange}
+          type="file"
+          label="Imagem: "
+          placeholder=""
+        />
+        <Select
+          setValue={handleChangeCardType}
+          optionsArray={cardTypeOptions}
+          label="Tipo da carta: "
+        />
+
+        {cardAttributeSelectRenderCondition ? (
+          <></>
+        ) : (
+          <Select
+            setValue={handleChangeCardAttribute}
+            optionsArray={cardAttributeOptions}
+            label="Atributo: "
+          />
+        )}
+
+        {cardLevelStarSelectRenderCondition ? (
+          <></>
+        ) : (
+          <Select
+            setValue={handleChangeCardLevel}
+            optionsArray={cardLevelOptions}
+            currentValue={cardLevel}
+            label="Níveis: "
+          />
+        )}
+
+        <Input
+          setValue={handleChangeCardMonsterType}
+          type="text"
+          label="Tipo(s): "
+          placeholder="Ex.: Dragão/XYZ"
+        />
+        <Input
+          setValue={handleChangeCardDescription}
+          type="text"
+          label="Descrição: "
+          placeholder="Ex.: Ao ser invocada destrói todos os monstros em campo"
+        />
+
+        <DownloadButton onClick={handleDownload}>
+          Download da carta
+        </DownloadButton>
+      </CardForm>
+
       <Card />
-      <Input setValue={handleChangeCardName} type="text" />
-      <Input setValue={handleImageChange} type="file" />
-      <Select setValue={handleChangeCardType} optionsArray={cardTypeOptions} />
-
-      {cardAttributeSelectRenderCondition ? (
-        <></>
-      ) : (
-        <Select
-          setValue={handleChangeCardAttribute}
-          optionsArray={cardAttributeOptions}
-        />
-      )}
-
-      {cardLevelStarSelectRenderCondition ? (
-        <></>
-      ) : (
-        <Select
-          setValue={handleChangeCardLevel}
-          optionsArray={cardLevelOptions}
-        />
-      )}
-
-      <Input setValue={handleChangeCardMonsterType} type="text" />
-      <Input setValue={handleChangeCardDescription} type="text" />
-
-      <DownloadButton onClick={handleDownload}>
-        Download da carta
-      </DownloadButton>
-    </>
+    </CardCreationContainer>
   );
 };
