@@ -19,7 +19,7 @@ export const useCardCreation = () => {
     handleChangeCardLevel,
     handleChangeCardMonsterType,
     handleChangeCardDescription,
-    cardLevel
+    cardLevel,
   } = cardContext;
 
   const cardTypeOptions: Array<ICardTypeOptions> = [
