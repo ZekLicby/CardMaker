@@ -6,7 +6,7 @@ import {
   TCardLevelValue,
   TCardTypeValue,
 } from "@/types/card";
-import { ChangeEvent } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 export interface IViewCardCreation {
   cardTypeOptions: ICardTypeOptions[];
@@ -23,5 +23,5 @@ export interface IViewCardCreation {
   handleChangeCardMonsterType: (e: ChangeEvent<HTMLInputElement>) => void;
   handleChangeCardDescription: (e: ChangeEvent<HTMLInputElement>) => void;
   cardLevel: number;
-  handleSendForm: () => void;
+  handleSendForm: (event: FormEvent<HTMLFormElement>) => void;
 }

@@ -4,7 +4,7 @@ import {
   ICardTypeOptions,
   TCardLevelOptions,
 } from "@/types/card";
-import { useContext } from "react";
+import { FormEvent, useContext } from "react";
 
 export const useCardCreation = () => {
   const cardContext = useContext(CardContext);
@@ -22,7 +22,7 @@ export const useCardCreation = () => {
     cardLevel,
   } = cardContext;
 
-  const handleSendForm = (event: Event) => {
+  const handleSendForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
