@@ -23,4 +23,5 @@ export interface IViewCardCreation {
   handleChangeCardMonsterType: (e: ChangeEvent<HTMLInputElement>) => void;
   handleChangeCardDescription: (e: ChangeEvent<HTMLInputElement>) => void;
   cardLevel: number;
+  handleSendForm: () => void;
 }

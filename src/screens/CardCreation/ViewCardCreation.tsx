@@ -20,10 +20,11 @@ export const ViewCardCreation: FC<IViewCardCreation> = ({
   handleChangeCardMonsterType,
   handleChangeCardDescription,
   cardLevel,
+  handleSendForm,
 }) => {
   return (
     <CardCreationContainer>
-      <CardForm>
+      <CardForm onSubmit={handleSendForm}>
         <Input
           setValue={handleChangeCardName}
           type="text"

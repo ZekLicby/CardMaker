@@ -22,6 +22,10 @@ export const useCardCreation = () => {
     cardLevel,
   } = cardContext;
 
+  const handleSendForm = (event: Event) => {
+    event.preventDefault();
+  };
+
   const cardTypeOptions: Array<ICardTypeOptions> = [
     { value: "link", label: "Link" },
     { value: "xyz", label: "XYZ" },
@@ -85,5 +89,6 @@ export const useCardCreation = () => {
     handleChangeCardMonsterType,
     handleChangeCardDescription,
     cardLevel,
+    handleSendForm,
   };
 };
